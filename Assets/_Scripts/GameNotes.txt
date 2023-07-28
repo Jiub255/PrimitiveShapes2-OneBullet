@@ -1,0 +1,20 @@
+
+
+Primitive Shapes Game Jam #2 - Theme: One Bullet. 
+
+Shoot your one bullet through a maze towards the target.
+	Bounce it off walls to reach the target, not just straight shots. 
+		Could start with bullet in center, and then decide which way to launch it. 
+		Make weird levels where shooting away from the target can get you there somehow. 
+	Launch ball by holding mouse and pulling back then releasing. 
+		Have an arrow indicator that shows where your ball will go. 
+			Points in direction ball with go.
+			Longer arrow for stronger shot? Maybe not. Just have a constant launch velocity. 
+	Build the "maze" out of tiles. 
+		Tiles can have special abilities.
+			Explode, to make room to get through maybe. 
+			Magnets to push/pull?
+			Sticky?
+			Ice, so the ball slides along whatever wall it hit instead of bounces? 
+Hit the target to beat the level, the closer to the bullseye you hit, the higher your score for that level. 
+Have a high score leaderboard for total from all levels. 
