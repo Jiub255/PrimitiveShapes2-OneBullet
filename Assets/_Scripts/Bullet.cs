@@ -1,72 +1,55 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(Rigidbody2D))]
 public class Bullet : MonoBehaviour
 {
     [SerializeField]
-    private float _launchSpeed = 5f;
+    private float _speed = 10f;
 
-    private bool _aiming;
-    private Vector2 _ballPosition;
-    private InputAction _mousePositionAction;
-    private Camera _camera;
-    private Vector2 _aimDirection;
-    private Transform _arrowBaseTransform;
+/*    [SerializeField]
+    private ParticleSystem _hitParticleSystem;*/
+    private Rigidbody _rigidbody;
 
     private void Start()
     {
-        _aiming = true;
-        _ballPosition = transform.position;
-        _mousePositionAction = S.I.IM.C.Input.MousePosition;
-        _camera = Camera.main;
-        _arrowBaseTransform = transform.GetChild(0).transform;
+        _rigidbody = GetComponent<Rigidbody>();
 
-        S.I.IM.C.Input.Click.canceled += (c) => Launch();
+        Target.OnHitTarget += HitTarget;
+        Target.OnLevelOver += (_) => ResetBullet();
+        CameraAim.OnShootBullet += Launch;
     }
 
     private void OnDisable()
     {
-        S.I.IM.C.Input.Click.canceled -= (c) => Launch();
+        Target.OnHitTarget -= HitTarget;
+        Target.OnLevelOver -= (_) => ResetBullet();
+        CameraAim.OnShootBullet -= Launch;
     }
 
-    private void Update()
+    private void Launch(Vector3 direction)
     {
-        if (_aiming)
-        {
-            Vector2 mouseWorldPosition = _camera.ScreenToWorldPoint(_mousePositionAction.ReadValue<Vector2>());
-            _aimDirection = (_ballPosition - mouseWorldPosition).normalized;
-            Debug.Log($"Aiming direction: {_aimDirection}");
-            Debug.Log($"Mouse position: {_mousePositionAction.ReadValue<Vector2>()}, Mouse world position: {mouseWorldPosition}");
-            DrawAimingArrow();
-        }
+        Vector3 launchVector = direction.normalized * _speed;
+
+        _rigidbody.AddForce(launchVector, ForceMode.Impulse);
     }
 
-    private void DrawAimingArrow()
+    private void HitTarget()
     {
-        // Draw arrow with base at center of bullet pointing in aiming direction. 
-        float angle = CalculateAngle();
-        _arrowBaseTransform.rotation = Quaternion.Euler(0f, 0f, angle);
+//        _hitParticleSystem.Play();
+        GetComponent<Renderer>().enabled = false;
     }
 
-    private float CalculateAngle()
+    private void ResetBullet()
     {
-        // Do math to convert from Vector2 to angle. 
-        if (_aimDirection.y >= 0f)
-        {
-            return Vector2.Angle(Vector2.right, _aimDirection);
-        }
-        else
-        {
-            return 360f - Vector2.Angle(Vector2.right, _aimDirection);
-        }
+//        _hitParticleSystem.Stop();
+        // Not sure if this is necessary. 
+        _rigidbody.ResetInertiaTensor();
+        // Right in front of camera. 
+        transform.position = new Vector3(0f, -0.8f, -9f);
+        GetComponent<Renderer>().enabled = true;
     }
 
-    public void Launch()
+/*    private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Launch");
-        _aiming = false;
-        _arrowBaseTransform.gameObject.SetActive(false);
-        gameObject.GetComponent<Rigidbody2D>().AddForce(_aimDirection * _launchSpeed, ForceMode2D.Impulse);
-    }
+        _hitParticleSystem.
+    }*/
 }
