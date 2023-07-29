@@ -12,30 +12,53 @@ public class Target : MonoBehaviour
     /// Level over UI listens, opens, pauses game?
     /// </summary>
     public static event Action<int> OnLevelOver;
+    /// <summary>
+    /// UI High score entry opens
+    /// </summary>
+    public static event Action<int> OnGameOver;
 
-	[SerializeField]
-	private int _score;
+/*	[SerializeField]
+	private int _score;*/
     [SerializeField]
-    private float _levelEndDelayTime;
+    private float _levelEndDelayTime = 1f;
+    [SerializeField]
+    private Transform _targetCenter;
 
     private void OnCollisionEnter(Collision collision)
     {
-        Time.timeScale = 0f;
+        Vector3 contactPoint = collision.GetContact(0).point;
+        float distanceFromCenter = Vector3.Distance(contactPoint, _targetCenter.position);
+
+        Debug.Log("OnCollisionEnter with target");
         OnHitTarget?.Invoke();
-        StartCoroutine(EndLevel());
+        StartCoroutine(EndLevel(contactPoint, CalculateScore(distanceFromCenter)));
     }
 
-    private IEnumerator EndLevel()
+    private int CalculateScore(float distanceFromCenter)
     {
-        // Add score.
-        S.I.GM.Score += _score;
+        return Mathf.RoundToInt(25f - distanceFromCenter);
+    }
 
-        // Play hit animation/effects (particles?).
+    private IEnumerator EndLevel(Vector3 contactPoint, int score)
+    {
+        Debug.Log($"EndLevelCoroutine, adding {score} points from target with id {gameObject.GetInstanceID()}. ");
+        // Add score.
+        S.I.GM.Score += score;
+
+        // Play hit animation/effects (primitive shape particles).
+        // Use contactPoint. 
+
+
         yield return new WaitForSeconds(_levelEndDelayTime);
 
-        // Show end of level score UI. 
-        OnLevelOver?.Invoke(_score);
-
-        // Load next level from UI button. 
+        Debug.Log($"Next level index: {S.I.GM.NextLevelIndex}, levels: {S.I.GM.LevelsCount}");
+        if (S.I.GM.NextLevelIndex < S.I.GM.LevelsCount)
+        {
+            OnLevelOver?.Invoke(score);
+        }
+        else
+        {
+            OnGameOver?.Invoke(score);
+        }
     }
 }

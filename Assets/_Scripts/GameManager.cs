@@ -1,45 +1,72 @@
-using System.Collections;
+using LootLocker.Requests;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+	/// <summary>
+	/// Open win UI, 
+	/// </summary>
+	public static event Action OnWin;
+
 	[SerializeField]
 	private List<GameObject> _levelPrefabs; 
 	[SerializeField, Header("----- Just serialized for easy viewing in inspector -----")]
 	private int _score;
 	[SerializeField]
-	private int _levelIndex;
+	private int _nextLevelIndex;
 
 	private GameObject _currentLevelInstance;
 
 	public int Score { get { return _score; } set { _score = value; } }
+	public int NextLevelIndex { get { return _nextLevelIndex; } }
+	public int LevelsCount { get { return _levelPrefabs.Count; } }	
 
     private void Start()
     {
-		UILevelOver.OnNextLevel += NextLevel;
+		LootLockerSDKManager.StartGuestSession((response) =>
+		{
+			if (!response.success)
+			{
+				Debug.LogWarning("Error starting lootlocker session. ");
+				return;
+			}
+
+			Debug.Log("Successfully started lootlocker session. ");
+		});
+
+		UINextLevel.OnNextLevel += NextLevel;
+		UIHighScores.OnPlayAgain += PlayAgain;
     }
 
     private void OnDisable()
     {
-		UILevelOver.OnNextLevel -= NextLevel;
+		UINextLevel.OnNextLevel -= NextLevel;
+		UIHighScores.OnPlayAgain -= PlayAgain;
 	}
 
 	private void NextLevel()
     {
-		if (_currentLevelInstance != null)
-			Destroy(_currentLevelInstance);
+		Debug.Log($"Next level. Current level instance null: {_currentLevelInstance == null}");
 
-		_levelIndex++;
-		if (_levelIndex >= _levelPrefabs.Count)
+		if (_currentLevelInstance != null)
         {
-			// Go to end of game/high score screen.
+			Debug.Log("About to destroy current level instance.");
+			Destroy(_currentLevelInstance);
         }
-        else
-        {
-			// Load next level.
-			Instantiate(_levelPrefabs[_levelIndex], Vector3.zero, Quaternion.identity);
-        }
+
+		// Load next level.
+		_currentLevelInstance = Instantiate(_levelPrefabs[_nextLevelIndex], Vector3.zero, Quaternion.identity);
+
+		// Increment index after instantiating so first level can be index zero. 
+		_nextLevelIndex++;
+    }
+
+	private void PlayAgain()
+    {
+		_score = 0;
+		_nextLevelIndex = 0;
+		NextLevel();
     }
 }

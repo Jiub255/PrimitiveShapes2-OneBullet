@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182cd195a28310e479cddf7ff82822f8, type: 3}
+  m_Name: LootLockerConfig
+  m_EditorClassIdentifier: 
+  apiKey: dev_37eb73a63be145f59c3a7da9fbe1fd6e
+  token: 0ea45735f73d865c172c0e692ccd264fec95ea56
+  adminToken: 
+  refreshToken: 
+  domainKey: fikktbbv
+  gameID: 0
+  game_version: 1.0.0.0
+  deviceID: fc086515-db95-40ea-889b-84d814206b24
+  platform: 4
+  developmentMode: 1
+  url: https://api.lootlocker.io/v1
+  adminUrl: https://fikktbbv.api.lootlocker.io/admin
+  playerUrl: https://fikktbbv.api.lootlocker.io/player
+  userUrl: https://fikktbbv.api.lootlocker.io/game
+  baseUrl: https://fikktbbv.api.lootlocker.io
+  clientSideRequestTimeOut: 5
+  currentDebugLevel: 0
+  allowTokenRefresh: 1

@@ -19,7 +19,7 @@ public class CameraAim : MonoBehaviour
     private Transform _transform;
     private float _yRange;
     private float _xRange;
-    private bool _aiming = true;
+    private bool _aiming;
 
     private void Start()
     {
@@ -29,31 +29,36 @@ public class CameraAim : MonoBehaviour
         _xRange = _xRotationMinMax.y - _xRotationMinMax.x;
 
         S.I.IM.C.Input.Click.canceled += Launch;
-        UILevelOver.OnNextLevel += () => _aiming = true;
+        UINextLevel.OnNextLevel += () => _aiming = true;
+        UIHighScores.OnPlayAgain += () => _aiming = true;
     }
 
     private void OnDisable()
     {
         S.I.IM.C.Input.Click.canceled -= Launch;
-        UILevelOver.OnNextLevel -= () => _aiming = true;
+        UINextLevel.OnNextLevel -= () => _aiming = true;
+        UIHighScores.OnPlayAgain -= () => _aiming = true;
     }
 
     private void Launch(InputAction.CallbackContext _)
     {
-        _aiming = false;
-        OnShootBullet?.Invoke(_transform.forward);
+        if (_aiming)
+        {
+            _aiming = false;
+            OnShootBullet?.Invoke(_transform.forward);
+        }
     }
 
     private void Update()
     {
-        //        Debug.Log($"Mouse position: {_mousePositionAction.ReadValue<Vector2>()}, Screen size: {Screen.height} x {Screen.width}");
+//        Debug.Log($"Mouse position: {_mousePositionAction.ReadValue<Vector2>()}, Screen size: {Screen.height} x {Screen.width}");
 
         if (_aiming)
         {
             Vector2 mousePosition = _mousePositionAction.ReadValue<Vector2>();
 
             // Scale mouse position to have coordinates in [0, 1]. 
-            Vector2 scaledMousePosition = new Vector2(mousePosition.x / Screen.width, mousePosition.y / Screen.width);
+            Vector2 scaledMousePosition = new Vector2(mousePosition.x / Screen.width, mousePosition.y / Screen.height);
 
             SetAimAngle(scaledMousePosition);
         }
@@ -62,7 +67,7 @@ public class CameraAim : MonoBehaviour
     private void SetAimAngle(Vector2 scaledMousePosition)
     {
         // Scale mousePosition again to be between y rotation min and max. 
-        float y = scaledMousePosition.x * _xRange + _yRotationMinMax.x;
+        float y = scaledMousePosition.x * _yRange + _yRotationMinMax.x;
         // Scale mousePosition again to be between x rotation min and max. 
         float x = scaledMousePosition.y * _xRange + _xRotationMinMax.x;
 

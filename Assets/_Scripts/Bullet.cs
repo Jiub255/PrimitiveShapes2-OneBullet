@@ -3,7 +3,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     [SerializeField]
-    private float _speed = 10f;
+    private float _speed = 25f;
 
 /*    [SerializeField]
     private ParticleSystem _hitParticleSystem;*/
@@ -16,6 +16,7 @@ public class Bullet : MonoBehaviour
         Target.OnHitTarget += HitTarget;
         Target.OnLevelOver += (_) => ResetBullet();
         CameraAim.OnShootBullet += Launch;
+        UIHighScores.OnPlayAgain += ResetBullet;
     }
 
     private void OnDisable()
@@ -23,6 +24,7 @@ public class Bullet : MonoBehaviour
         Target.OnHitTarget -= HitTarget;
         Target.OnLevelOver -= (_) => ResetBullet();
         CameraAim.OnShootBullet -= Launch;
+        UIHighScores.OnPlayAgain -= ResetBullet;
     }
 
     private void Launch(Vector3 direction)
@@ -34,17 +36,21 @@ public class Bullet : MonoBehaviour
 
     private void HitTarget()
     {
+        Debug.Log("HitTarget");
 //        _hitParticleSystem.Play();
         GetComponent<Renderer>().enabled = false;
+        // Not sure if this is necessary. 
+        _rigidbody.ResetInertiaTensor();
+        _rigidbody.velocity = Vector3.zero;
+        _rigidbody.angularVelocity = Vector3.zero;
     }
 
     private void ResetBullet()
     {
-//        _hitParticleSystem.Stop();
-        // Not sure if this is necessary. 
-        _rigidbody.ResetInertiaTensor();
-        // Right in front of camera. 
-        transform.position = new Vector3(0f, -0.8f, -9f);
+        Debug.Log("ResetBullet");
+        //        _hitParticleSystem.Stop();
+        // Right behind camera, so it shoots where crosshair aims but doesn't get in the way of the camera while aiming. 
+        transform.position = new Vector3(0f, 0f, -11f);
         GetComponent<Renderer>().enabled = true;
     }
 

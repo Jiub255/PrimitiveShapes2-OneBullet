@@ -2,7 +2,7 @@ using System;
 using TMPro;
 using UnityEngine;
 
-public class UILevelOver : MonoBehaviour
+public class UINextLevel : MonoBehaviour
 {
     /// <summary>
     /// GameManager listens, goes to next level. <br/>
@@ -10,13 +10,17 @@ public class UILevelOver : MonoBehaviour
     /// Bullet listens, goes back to origin. 
     /// </summary>
     public static event Action OnNextLevel;
+    /// <summary>
+    /// Go to high score entry UI. 
+    /// </summary>
+    public static event Action OnGameOver;
 
     [SerializeField]
-    private GameObject _levelOverCanvas;
+    private GameObject _nextLevelCanvas;
 	[SerializeField]
-	private TextMeshProUGUI _levelOverText;
+	private TextMeshProUGUI _nextLevelText;
 	[SerializeField]
-	private TextMeshProUGUI _levelOverText2;
+	private TextMeshProUGUI _nextLevelButtonText;
 
     private void Start()
     {
@@ -30,9 +34,11 @@ public class UILevelOver : MonoBehaviour
 
     private void SetupUI(int levelScore)
     {
-        _levelOverCanvas.SetActive(true);
-		_levelOverText.text = $"You Win!!!\nScore: {levelScore}\nTotal: {S.I.GM.Score}";
-		_levelOverText2.text = $"You Win!!!\nScore: {levelScore}\nTotal: {S.I.GM.Score}";
+        Debug.Log("SetupUI");
+        _nextLevelCanvas.SetActive(true);
+        _nextLevelText.fontSize = 180f;
+		_nextLevelText.text = $"You Win!!!\nScore: {levelScore}\nTotal: {S.I.GM.Score}";
+        _nextLevelButtonText.text = $"Start Level {S.I.GM.NextLevelIndex + 1}";
     }
 
     /// <summary>
@@ -40,8 +46,7 @@ public class UILevelOver : MonoBehaviour
     /// </summary>
     public void NextLevel()
     {
-        Time.timeScale = 1f;
         OnNextLevel?.Invoke();
-        _levelOverCanvas.SetActive(false);
+        _nextLevelCanvas.SetActive(false);
     }
 }

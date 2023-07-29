@@ -2,19 +2,55 @@
 
 Primitive Shapes Game Jam #2 - Theme: One Bullet. 
 
+
+DESCRIPTION
+-----------
+
 Shoot your one bullet through a maze towards the target.
 	Bounce it off walls to reach the target, not just straight shots. 
 		Could start with bullet in center, and then decide which way to launch it. 
 		Make weird levels where shooting away from the target can get you there somehow. 
-	Launch ball by holding mouse and pulling back then releasing. 
-		Have an arrow indicator that shows where your ball will go. 
-			Points in direction ball with go.
-			Longer arrow for stronger shot? Maybe not. Just have a constant launch velocity. 
-	Build the "maze" out of tiles. 
-		Tiles can have special abilities.
-			Explode, to make room to get through maybe. 
-			Magnets to push/pull?
-			Sticky?
-			Ice, so the ball slides along whatever wall it hit instead of bounces? 
+
+
+TODO
+----
+
+Platforms can have special abilities.
+	Explode, to make room to get through maybe. 
+	Magnets to push/pull?
+	Sticky?
+	Ice, so the ball slides along whatever wall it hit instead of bounces? 
+
+Design actual levels. 
+	Maybe like 3 to 5? 
+
+Make space background. 
+	Have random sphere placer script so each level looks different. 
+		Place a bunch of small (or far away) spheres to look like stars. 
+		Place a few bigger (or closer) spheres with different colors to look like planets. 
+		Have a big "sun" sphere? 
+			With attached directional light? 
+				Could do different colors instead of plain white. 
+
+JUICE!!!
+	Add sound effects.
+		UI, shoot, hit platform, hit target and explode or whatever, beat level, beat game, high score, etc. 
+	Add music.
+		Menu, gameplay, win, lose. 
+	Add particle effects.
+		Can only use primitive shapes for particles. 
+		Have collision, explode, die (go off course/miss) and shoot effects at least. 
+	Menu animations? If there's time maybe. 
+
+
+
+
+DONE
+----
+
+
 Hit the target to beat the level, the closer to the bullseye you hit, the higher your score for that level. 
+
 Have a high score leaderboard for total from all levels. 
+
+

@@ -30,13 +30,19 @@ public class CameraFollow : MonoBehaviour
     private void Start()
     {
         CameraAim.OnShootBullet += (_) => _following = true;
-        UILevelOver.OnNextLevel += ResetCamera;
+        Target.OnLevelOver += (_) => _following = false;
+        Target.OnGameOver += (_) => _following = false;
+        UINextLevel.OnNextLevel += ResetCamera;
+        UIHighScores.OnPlayAgain += ResetCamera;
     }
 
     private void OnDisable()
     {
         CameraAim.OnShootBullet -= (_) => _following = true;
-        UILevelOver.OnNextLevel -= ResetCamera;
+        Target.OnLevelOver -= (_) => _following = false;
+        Target.OnGameOver -= (_) => _following = false;
+        UINextLevel.OnNextLevel -= ResetCamera;
+        UIHighScores.OnPlayAgain -= ResetCamera;
     }
 
     private void Update()
@@ -52,6 +58,7 @@ public class CameraFollow : MonoBehaviour
     {
         _following = false;
         _transform.position = new Vector3(0f, 0f, -10f);
+        _transform.rotation = Quaternion.identity;
     }
 
     private void MoveTowardsBullet()
