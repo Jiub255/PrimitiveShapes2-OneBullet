@@ -1,15 +1,9 @@
 using LootLocker.Requests;
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-	/// <summary>
-	/// Open win UI, 
-	/// </summary>
-	public static event Action OnWin;
-
 	[SerializeField]
 	private List<GameObject> _levelPrefabs; 
 	[SerializeField, Header("----- Just serialized for easy viewing in inspector -----")]

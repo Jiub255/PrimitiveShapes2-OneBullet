@@ -1,10 +1,11 @@
 
+----------------------------------------------------------------------------------------------------------------
 
-Primitive Shapes Game Jam #2 - Theme: One Bullet. 
+							  Primitive Shapes Game Jam #2 - Theme: One Bullet
 
-
-DESCRIPTION
------------
+----------------------------------------------------------------------------------------------------------------
+												 DESCRIPTION
+----------------------------------------------------------------------------------------------------------------
 
 Shoot your one bullet through a maze towards the target.
 	Bounce it off walls to reach the target, not just straight shots. 
@@ -12,8 +13,10 @@ Shoot your one bullet through a maze towards the target.
 		Make weird levels where shooting away from the target can get you there somehow. 
 
 
-TODO
-----
+
+----------------------------------------------------------------------------------------------------------------
+													 TODO
+----------------------------------------------------------------------------------------------------------------
 
 Platforms can have special abilities.
 	Explode, to make room to get through maybe. 
@@ -23,14 +26,6 @@ Platforms can have special abilities.
 
 Design actual levels. 
 	Maybe like 3 to 5? 
-
-Make space background. 
-	Have random sphere placer script so each level looks different. 
-		Place a bunch of small (or far away) spheres to look like stars. 
-		Place a few bigger (or closer) spheres with different colors to look like planets. 
-		Have a big "sun" sphere? 
-			With attached directional light? 
-				Could do different colors instead of plain white. 
 
 JUICE!!!
 	Add sound effects.
@@ -42,15 +37,24 @@ JUICE!!!
 		Have collision, explode, die (go off course/miss) and shoot effects at least. 
 	Menu animations? If there's time maybe. 
 
+Make moving platforms. 
 
 
 
-DONE
-----
-
+----------------------------------------------------------------------------------------------------------------
+													 DONE
+----------------------------------------------------------------------------------------------------------------
 
 Hit the target to beat the level, the closer to the bullseye you hit, the higher your score for that level. 
 
 Have a high score leaderboard for total from all levels. 
+
+Make space background. 
+	Have random sphere placer script so each level looks different. 
+		Place a bunch of small (or far away) spheres to look like stars. 
+		Place a few bigger (or closer) spheres with different colors to look like planets. 
+		Have a big "sun" sphere? 
+			With attached directional light? 
+				Could do different colors instead of plain white. 
 
 

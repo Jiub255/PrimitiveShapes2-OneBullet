@@ -10,10 +10,6 @@ public class UINextLevel : MonoBehaviour
     /// Bullet listens, goes back to origin. 
     /// </summary>
     public static event Action OnNextLevel;
-    /// <summary>
-    /// Go to high score entry UI. 
-    /// </summary>
-    public static event Action OnGameOver;
 
     [SerializeField]
     private GameObject _nextLevelCanvas;
