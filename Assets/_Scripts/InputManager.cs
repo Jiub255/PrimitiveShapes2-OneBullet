@@ -2,22 +2,22 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
-    [SerializeField]
+/*    [SerializeField]
     private GameObject _mainCameraGO;
     [SerializeField]
     private GameObject _freeMoveCameraGO;
     [SerializeField]
     private SkyboxCamera _skyboxCamera;
     private Camera _mainCamera;
-    private Camera _freeMoveCamera;
+    private Camera _freeMoveCamera;*/
 
     public Controls C { get; private set; }
 
     private void Awake()
     {
         C = new Controls();
-        _mainCamera = _mainCameraGO.GetComponent<Camera>();
-        _freeMoveCamera = _freeMoveCameraGO.GetComponentInChildren<Camera>();
+/*        _mainCamera = _mainCameraGO.GetComponent<Camera>();
+        _freeMoveCamera = _freeMoveCameraGO.GetComponentInChildren<Camera>();*/
 
         SwitchToGame();
     }
@@ -37,11 +37,11 @@ public class InputManager : MonoBehaviour
 
     public void SwitchToFreeMove()
     {
-        _mainCamera.enabled = false;
+/*        _mainCamera.enabled = false;
         _mainCameraGO.SetActive(false);
         _freeMoveCameraGO.SetActive(true);
         _freeMoveCamera.enabled = true;
-        _skyboxCamera.MainCameraTransform = _freeMoveCameraGO.transform.GetChild(1);
+        _skyboxCamera.MainCameraTransform = _freeMoveCameraGO.transform.GetChild(1);*/
 
         C.Disable();
 
@@ -51,11 +51,11 @@ public class InputManager : MonoBehaviour
 
     public void SwitchToGame()
     {
-        _freeMoveCamera.enabled = false;
+/*        _freeMoveCamera.enabled = false;
         _freeMoveCameraGO.SetActive(false);
         _mainCameraGO.SetActive(true);
         _mainCamera.enabled = true;
-        _skyboxCamera.MainCameraTransform = _mainCameraGO.transform;
+        _skyboxCamera.MainCameraTransform = _mainCameraGO.transform;*/
 
         C.Disable();
 

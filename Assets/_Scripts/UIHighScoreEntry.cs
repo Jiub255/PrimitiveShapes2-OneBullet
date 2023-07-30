@@ -24,20 +24,20 @@ public class UIHighScoreEntry : MonoBehaviour
 
     private void Start()
     {
-//		GameManager.OnWin += SetupUI;
-		Target.OnGameOver += SetupUI;
+		GameManager.OnWin += SetupUI;
+//		Target.OnGameOver += SetupUI;
     }
 
     private void OnDisable()
     {
-//		GameManager.OnWin -= SetupUI;
-		Target.OnGameOver -= SetupUI;
+		GameManager.OnWin -= SetupUI;
+//		Target.OnGameOver -= SetupUI;
 	}
 
-	private void SetupUI(int lastLevelScore)
+	private void SetupUI()
     {
 		_winCanvas.SetActive(true);
-		_winText.text = $"You Win!!!\nScore: {lastLevelScore}\nTotal Score: {S.I.GM.Score}";
+		_winText.text = $"You Win!!!\nTotal Score: {S.I.GM.Score}";
     }
 
 	public void HandleSubmitButtonPress()

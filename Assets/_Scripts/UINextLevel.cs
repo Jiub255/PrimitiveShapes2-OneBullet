@@ -20,20 +20,21 @@ public class UINextLevel : MonoBehaviour
 
     private void Start()
     {
-        Target.OnLevelOver += SetupUI;
+        GameManager.OnNextLevel += SetupUI;
+//        Target.OnLevelOver += SetupUI;
     }
 
     private void OnDisable()
     {
-        Target.OnLevelOver -= SetupUI;
+//        Target.OnLevelOver -= SetupUI;
     }
 
-    private void SetupUI(int levelScore)
+    private void SetupUI()
     {
         Debug.Log("SetupUI");
         _nextLevelCanvas.SetActive(true);
         _nextLevelText.fontSize = 180f;
-		_nextLevelText.text = $"You Win!!!\nScore: {levelScore}\nTotal: {S.I.GM.Score}";
+		_nextLevelText.text = $"You Beat Level\n{S.I.GM.Score}!!!";
         _nextLevelButtonText.text = $"Start Level {S.I.GM.NextLevelIndex + 1}";
     }
 
