@@ -23,6 +23,7 @@ Platforms can have special abilities.
 	Magnets to push/pull?
 	Sticky?
 	Ice, so the ball slides along whatever wall it hit instead of bounces? 
+	Moving platforms 
 
 Design actual levels. 
 	Maybe like 3 to 5? 
@@ -36,10 +37,6 @@ JUICE!!!
 		Can only use primitive shapes for particles. 
 		Have collision, explode, bullet trail, die (go off course/miss) and shoot effects at least. 
 	Menu animations? If there's time maybe. 
-
-Make moving platforms. 
-
-Make ball reset when you miss. 
 
 Fix free view camera rotation in CameraMoveRotate. 
 
@@ -65,4 +62,5 @@ Make space background.
 Have separate, movable camera for checking out the level before shooting. 
 	Have right click toggle between the two cameras while aiming. 
 
+Make ball reset when you miss. 
 

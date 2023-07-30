@@ -10,6 +10,7 @@ public class UICrosshair : MonoBehaviour
         CameraAim.OnShootBullet += (_) => ToggleCrosshair(false);
         UINextLevel.OnNextLevel += () => ToggleCrosshair(true);
         UIHighScores.OnPlayAgain += () => ToggleCrosshair(true);
+        Barrier.OnLeftArea += () => ToggleCrosshair(true);
     }
 
     private void OnDisable()
@@ -17,6 +18,7 @@ public class UICrosshair : MonoBehaviour
         CameraAim.OnShootBullet -= (_) => ToggleCrosshair(false);
         UINextLevel.OnNextLevel -= () => ToggleCrosshair(true);
         UIHighScores.OnPlayAgain -= () => ToggleCrosshair(true);
+        Barrier.OnLeftArea -= () => ToggleCrosshair(true);
     }
 
     private void ToggleCrosshair(bool enable)

@@ -4,9 +4,9 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField]
     private float _speed = 25f;
-
 /*    [SerializeField]
     private ParticleSystem _hitParticleSystem;*/
+
     private Rigidbody _rigidbody;
 
     private void Start()
@@ -18,6 +18,7 @@ public class Bullet : MonoBehaviour
         Target.OnLevelOver += (_) => ResetBullet();
         CameraAim.OnShootBullet += Launch;
         UIHighScores.OnPlayAgain += ResetBullet;
+        Barrier.OnLeftArea += () => { HitTarget(); ResetBullet(); };
     }
 
     private void OnDisable()
@@ -26,6 +27,7 @@ public class Bullet : MonoBehaviour
         Target.OnLevelOver -= (_) => ResetBullet();
         CameraAim.OnShootBullet -= Launch;
         UIHighScores.OnPlayAgain -= ResetBullet;
+        Barrier.OnLeftArea -= () => { HitTarget(); ResetBullet(); };
     }
 
     private void Launch(Vector3 direction)
@@ -37,7 +39,7 @@ public class Bullet : MonoBehaviour
 
     private void HitTarget()
     {
-        Debug.Log("HitTarget");
+//        Debug.Log("HitTarget");
 //        _hitParticleSystem.Play();
         GetComponent<Renderer>().enabled = false;
         // Not sure if this is necessary. 
@@ -48,8 +50,8 @@ public class Bullet : MonoBehaviour
 
     private void ResetBullet()
     {
-        Debug.Log("ResetBullet");
-        //        _hitParticleSystem.Stop();
+//        Debug.Log("ResetBullet");
+//        _hitParticleSystem.Stop();
         // Right behind camera, so it shoots where crosshair aims but doesn't get in the way of the camera while aiming. 
         transform.position = new Vector3(0f, 0f, -11f);
         GetComponent<Renderer>().enabled = true;

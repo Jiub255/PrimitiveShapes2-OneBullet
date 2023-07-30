@@ -34,6 +34,7 @@ public class CameraFollowBullet : MonoBehaviour
         Target.OnGameOver += (_) => _following = false;
         UINextLevel.OnNextLevel += ResetCamera;
         UIHighScores.OnPlayAgain += ResetCamera;
+        Barrier.OnLeftArea += ResetCamera;
     }
 
     private void OnDisable()
@@ -43,6 +44,7 @@ public class CameraFollowBullet : MonoBehaviour
         Target.OnGameOver -= (_) => _following = false;
         UINextLevel.OnNextLevel -= ResetCamera;
         UIHighScores.OnPlayAgain -= ResetCamera;
+        Barrier.OnLeftArea -= ResetCamera;
     }
 
     private void Update()

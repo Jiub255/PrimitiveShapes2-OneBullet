@@ -31,6 +31,7 @@ public class CameraAim : MonoBehaviour
         S.I.IM.C.Game.Click.canceled += Launch;
         UINextLevel.OnNextLevel += () => _aiming = true;
         UIHighScores.OnPlayAgain += () => _aiming = true;
+        Barrier.OnLeftArea += () => _aiming = true;
     }
 
     private void OnDisable()
@@ -38,6 +39,7 @@ public class CameraAim : MonoBehaviour
         S.I.IM.C.Game.Click.canceled -= Launch;
         UINextLevel.OnNextLevel -= () => _aiming = true;
         UIHighScores.OnPlayAgain -= () => _aiming = true;
+        Barrier.OnLeftArea -= () => _aiming = true;
     }
 
     private void Launch(InputAction.CallbackContext _)

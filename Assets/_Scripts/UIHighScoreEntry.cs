@@ -2,9 +2,13 @@ using LootLocker.Requests;
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIHighScoreEntry : MonoBehaviour
 {
+	/// <summary>
+	/// UIHighScores listens, calls SetupUI. 
+	/// </summary>
 	public static event Action OnSubmitScore;
 
 	[SerializeField]
@@ -13,6 +17,8 @@ public class UIHighScoreEntry : MonoBehaviour
 	private TMP_InputField _nameInputField;
 	[SerializeField]
 	private TextMeshProUGUI _winText;
+	[SerializeField]
+	private Button _submitButton;
 
     private string _leaderboardKey = "highscores";
 
@@ -51,6 +57,8 @@ public class UIHighScoreEntry : MonoBehaviour
 	/// </summary>
 	public void SubmitHighScore()
 	{
+		_submitButton.enabled = false;
+
 		string name = _nameInputField.text;
 
 		LootLockerSDKManager.SubmitScore(
@@ -64,12 +72,15 @@ public class UIHighScoreEntry : MonoBehaviour
 				{
 					Debug.Log("Successfully added score to leaderboard. ");
 
+					_submitButton.enabled = true;
 					_winCanvas.SetActive(false);
 					OnSubmitScore?.Invoke();
 				}
 				else
 				{
 					Debug.LogWarning($"Failed adding score to leaderboard: {response.Error}");
+
+					_submitButton.enabled = true;
 				}
 			});
 	}
