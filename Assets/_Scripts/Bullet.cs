@@ -12,6 +12,7 @@ public class Bullet : MonoBehaviour
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
+        transform.position = new Vector3(0f, 0f, -11f);
 
         Target.OnHitTarget += HitTarget;
         Target.OnLevelOver += (_) => ResetBullet();

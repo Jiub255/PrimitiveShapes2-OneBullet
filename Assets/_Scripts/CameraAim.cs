@@ -28,14 +28,14 @@ public class CameraAim : MonoBehaviour
         _yRange = _yRotationMinMax.y - _yRotationMinMax.x;
         _xRange = _xRotationMinMax.y - _xRotationMinMax.x;
 
-        S.I.IM.C.Input.Click.canceled += Launch;
+        S.I.IM.C.Game.Click.canceled += Launch;
         UINextLevel.OnNextLevel += () => _aiming = true;
         UIHighScores.OnPlayAgain += () => _aiming = true;
     }
 
     private void OnDisable()
     {
-        S.I.IM.C.Input.Click.canceled -= Launch;
+        S.I.IM.C.Game.Click.canceled -= Launch;
         UINextLevel.OnNextLevel -= () => _aiming = true;
         UIHighScores.OnPlayAgain -= () => _aiming = true;
     }

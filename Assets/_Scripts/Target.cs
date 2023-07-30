@@ -36,7 +36,8 @@ public class Target : MonoBehaviour
 
     private int CalculateScore(float distanceFromCenter)
     {
-        return Mathf.RoundToInt(25f - distanceFromCenter);
+        // Edge is 6 from center, so you get 1 - 7 points. 
+        return Mathf.RoundToInt(7f - distanceFromCenter);
     }
 
     private IEnumerator EndLevel(Vector3 contactPoint, int score)

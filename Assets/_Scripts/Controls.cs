@@ -37,15 +37,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Click"",
-                    ""type"": ""PassThrough"",
-                    ""id"": ""7080134e-9de0-42af-9253-0dcc3642057f"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": ""Hold"",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""Quit"",
                     ""type"": ""PassThrough"",
                     ""id"": ""5f4c7338-3eb6-4342-bfb4-8be69d23f831"",
@@ -53,15 +44,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Move"",
-                    ""type"": ""PassThrough"",
-                    ""id"": ""39cca42e-61ac-402d-b178-a42ac61166da"",
-                    ""expectedControlType"": ""Axis"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -78,18 +60,240 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""8c38c48f-29fa-483c-96a7-ca1e1299313d"",
-                    ""path"": ""<Mouse>/rightButton"",
+                    ""id"": ""120d8529-6953-4af7-91b3-2e9bbd590759"",
+                    ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Click"",
+                    ""action"": ""Quit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""FreeMove"",
+            ""id"": ""c5341793-f865-4fb0-936d-2efafbd6d2e4"",
+            ""actions"": [
+                {
+                    ""name"": ""Move"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""427b18ea-fa03-46cb-a458-1a30a530f406"",
+                    ""expectedControlType"": ""Vector3"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Zoom"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""f0da0d3b-ce49-419e-9c96-d2d6e7d23c2d"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Rotate"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""ce49645a-4331-43f6-b1e7-d20fc88e3487"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Hold"",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""SwitchToGame"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""453f33e0-75a0-448e-b5f6-1361bae7a8e3"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Hold"",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MouseDelta"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""1cfa0bba-f632-46da-9156-a951ba20f153"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""2b0388ee-96f5-4afa-9466-a2c65a27794b"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Zoom"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""dd36c110-9ea8-4b11-8517-b37c329ee74f"",
+                    ""path"": ""<Mouse>/scroll/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Zoom"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""8b5374f8-19fe-41e7-9cfc-3fe8eba79f79"",
+                    ""path"": ""<Mouse>/scroll/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Zoom"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""159c008f-1c1c-4753-9bc8-a0be3d80e61f"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""2dcfe75d-4bf0-44b6-aebf-09458356231b"",
+                    ""id"": ""4f4bb13a-79e8-474a-acae-39f079cc61ad"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwitchToGame"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""3D Vector"",
+                    ""id"": ""eccb7829-81cb-4c43-9523-e34a7491ff60"",
+                    ""path"": ""3DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""41bf1ece-89ed-4fc1-beb9-3a6c6675965a"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""509b66ca-49e6-4d55-8884-8b1a58300091"",
+                    ""path"": ""<Keyboard>/leftShift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""9909e8a5-ac4d-41f2-ba0e-2779c30e401e"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""d0254088-0381-485f-b6cd-0c1f2eef898f"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""forward"",
+                    ""id"": ""3f86b64e-3288-41ee-9c66-0603ccf40718"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""backward"",
+                    ""id"": ""04ec93ea-1b9d-4b8c-9401-e3225e95e56f"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""882a7d94-4fe7-4926-8b9c-b9d7fba2c9bb"",
+                    ""path"": ""<Mouse>/delta"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MouseDelta"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Game"",
+            ""id"": ""5f2656c1-ccd3-4bd4-86c8-8696ae2bcee7"",
+            ""actions"": [
+                {
+                    ""name"": ""Click"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""7c689cd4-7402-4d03-a57f-486e94582156"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Hold"",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SwitchToFreeMove"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""47cadcba-6e19-4881-b429-7261a804ee63"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Hold"",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""7be24bb2-4ff7-4a4d-851c-5b3515d4a971"",
                     ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -100,80 +304,14 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""120d8529-6953-4af7-91b3-2e9bbd590759"",
-                    ""path"": ""<Keyboard>/escape"",
+                    ""id"": ""abb7ee6f-6a33-4a9a-b609-986c42647c4a"",
+                    ""path"": ""<Mouse>/rightButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Quit"",
+                    ""action"": ""SwitchToFreeMove"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""AD"",
-                    ""id"": ""7ad32783-3969-457f-9bfc-785243445de1"",
-                    ""path"": ""1DAxis"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""negative"",
-                    ""id"": ""5ce23d80-d747-4d89-a25e-dead1843c654"",
-                    ""path"": ""<Keyboard>/a"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""positive"",
-                    ""id"": ""6cdc14a5-4fa8-46a0-ae82-3d778babe244"",
-                    ""path"": ""<Keyboard>/d"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""Arrows"",
-                    ""id"": ""c6ac2d61-2c26-43f0-8fa5-4b1ed4613420"",
-                    ""path"": ""1DAxis"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""negative"",
-                    ""id"": ""dc260624-9089-4acb-ac38-ac633b367e94"",
-                    ""path"": ""<Keyboard>/leftArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""positive"",
-                    ""id"": ""29d32f27-0dff-4003-bd60-44b9775601f2"",
-                    ""path"": ""<Keyboard>/rightArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -183,9 +321,18 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         // Input
         m_Input = asset.FindActionMap("Input", throwIfNotFound: true);
         m_Input_MousePosition = m_Input.FindAction("MousePosition", throwIfNotFound: true);
-        m_Input_Click = m_Input.FindAction("Click", throwIfNotFound: true);
         m_Input_Quit = m_Input.FindAction("Quit", throwIfNotFound: true);
-        m_Input_Move = m_Input.FindAction("Move", throwIfNotFound: true);
+        // FreeMove
+        m_FreeMove = asset.FindActionMap("FreeMove", throwIfNotFound: true);
+        m_FreeMove_Move = m_FreeMove.FindAction("Move", throwIfNotFound: true);
+        m_FreeMove_Zoom = m_FreeMove.FindAction("Zoom", throwIfNotFound: true);
+        m_FreeMove_Rotate = m_FreeMove.FindAction("Rotate", throwIfNotFound: true);
+        m_FreeMove_SwitchToGame = m_FreeMove.FindAction("SwitchToGame", throwIfNotFound: true);
+        m_FreeMove_MouseDelta = m_FreeMove.FindAction("MouseDelta", throwIfNotFound: true);
+        // Game
+        m_Game = asset.FindActionMap("Game", throwIfNotFound: true);
+        m_Game_Click = m_Game.FindAction("Click", throwIfNotFound: true);
+        m_Game_SwitchToFreeMove = m_Game.FindAction("SwitchToFreeMove", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -246,17 +393,13 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Input;
     private IInputActions m_InputActionsCallbackInterface;
     private readonly InputAction m_Input_MousePosition;
-    private readonly InputAction m_Input_Click;
     private readonly InputAction m_Input_Quit;
-    private readonly InputAction m_Input_Move;
     public struct InputActions
     {
         private @Controls m_Wrapper;
         public InputActions(@Controls wrapper) { m_Wrapper = wrapper; }
         public InputAction @MousePosition => m_Wrapper.m_Input_MousePosition;
-        public InputAction @Click => m_Wrapper.m_Input_Click;
         public InputAction @Quit => m_Wrapper.m_Input_Quit;
-        public InputAction @Move => m_Wrapper.m_Input_Move;
         public InputActionMap Get() { return m_Wrapper.m_Input; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -269,15 +412,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @MousePosition.started -= m_Wrapper.m_InputActionsCallbackInterface.OnMousePosition;
                 @MousePosition.performed -= m_Wrapper.m_InputActionsCallbackInterface.OnMousePosition;
                 @MousePosition.canceled -= m_Wrapper.m_InputActionsCallbackInterface.OnMousePosition;
-                @Click.started -= m_Wrapper.m_InputActionsCallbackInterface.OnClick;
-                @Click.performed -= m_Wrapper.m_InputActionsCallbackInterface.OnClick;
-                @Click.canceled -= m_Wrapper.m_InputActionsCallbackInterface.OnClick;
                 @Quit.started -= m_Wrapper.m_InputActionsCallbackInterface.OnQuit;
                 @Quit.performed -= m_Wrapper.m_InputActionsCallbackInterface.OnQuit;
                 @Quit.canceled -= m_Wrapper.m_InputActionsCallbackInterface.OnQuit;
-                @Move.started -= m_Wrapper.m_InputActionsCallbackInterface.OnMove;
-                @Move.performed -= m_Wrapper.m_InputActionsCallbackInterface.OnMove;
-                @Move.canceled -= m_Wrapper.m_InputActionsCallbackInterface.OnMove;
             }
             m_Wrapper.m_InputActionsCallbackInterface = instance;
             if (instance != null)
@@ -285,24 +422,135 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @MousePosition.started += instance.OnMousePosition;
                 @MousePosition.performed += instance.OnMousePosition;
                 @MousePosition.canceled += instance.OnMousePosition;
-                @Click.started += instance.OnClick;
-                @Click.performed += instance.OnClick;
-                @Click.canceled += instance.OnClick;
                 @Quit.started += instance.OnQuit;
                 @Quit.performed += instance.OnQuit;
                 @Quit.canceled += instance.OnQuit;
-                @Move.started += instance.OnMove;
-                @Move.performed += instance.OnMove;
-                @Move.canceled += instance.OnMove;
             }
         }
     }
     public InputActions @Input => new InputActions(this);
+
+    // FreeMove
+    private readonly InputActionMap m_FreeMove;
+    private IFreeMoveActions m_FreeMoveActionsCallbackInterface;
+    private readonly InputAction m_FreeMove_Move;
+    private readonly InputAction m_FreeMove_Zoom;
+    private readonly InputAction m_FreeMove_Rotate;
+    private readonly InputAction m_FreeMove_SwitchToGame;
+    private readonly InputAction m_FreeMove_MouseDelta;
+    public struct FreeMoveActions
+    {
+        private @Controls m_Wrapper;
+        public FreeMoveActions(@Controls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Move => m_Wrapper.m_FreeMove_Move;
+        public InputAction @Zoom => m_Wrapper.m_FreeMove_Zoom;
+        public InputAction @Rotate => m_Wrapper.m_FreeMove_Rotate;
+        public InputAction @SwitchToGame => m_Wrapper.m_FreeMove_SwitchToGame;
+        public InputAction @MouseDelta => m_Wrapper.m_FreeMove_MouseDelta;
+        public InputActionMap Get() { return m_Wrapper.m_FreeMove; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(FreeMoveActions set) { return set.Get(); }
+        public void SetCallbacks(IFreeMoveActions instance)
+        {
+            if (m_Wrapper.m_FreeMoveActionsCallbackInterface != null)
+            {
+                @Move.started -= m_Wrapper.m_FreeMoveActionsCallbackInterface.OnMove;
+                @Move.performed -= m_Wrapper.m_FreeMoveActionsCallbackInterface.OnMove;
+                @Move.canceled -= m_Wrapper.m_FreeMoveActionsCallbackInterface.OnMove;
+                @Zoom.started -= m_Wrapper.m_FreeMoveActionsCallbackInterface.OnZoom;
+                @Zoom.performed -= m_Wrapper.m_FreeMoveActionsCallbackInterface.OnZoom;
+                @Zoom.canceled -= m_Wrapper.m_FreeMoveActionsCallbackInterface.OnZoom;
+                @Rotate.started -= m_Wrapper.m_FreeMoveActionsCallbackInterface.OnRotate;
+                @Rotate.performed -= m_Wrapper.m_FreeMoveActionsCallbackInterface.OnRotate;
+                @Rotate.canceled -= m_Wrapper.m_FreeMoveActionsCallbackInterface.OnRotate;
+                @SwitchToGame.started -= m_Wrapper.m_FreeMoveActionsCallbackInterface.OnSwitchToGame;
+                @SwitchToGame.performed -= m_Wrapper.m_FreeMoveActionsCallbackInterface.OnSwitchToGame;
+                @SwitchToGame.canceled -= m_Wrapper.m_FreeMoveActionsCallbackInterface.OnSwitchToGame;
+                @MouseDelta.started -= m_Wrapper.m_FreeMoveActionsCallbackInterface.OnMouseDelta;
+                @MouseDelta.performed -= m_Wrapper.m_FreeMoveActionsCallbackInterface.OnMouseDelta;
+                @MouseDelta.canceled -= m_Wrapper.m_FreeMoveActionsCallbackInterface.OnMouseDelta;
+            }
+            m_Wrapper.m_FreeMoveActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Move.started += instance.OnMove;
+                @Move.performed += instance.OnMove;
+                @Move.canceled += instance.OnMove;
+                @Zoom.started += instance.OnZoom;
+                @Zoom.performed += instance.OnZoom;
+                @Zoom.canceled += instance.OnZoom;
+                @Rotate.started += instance.OnRotate;
+                @Rotate.performed += instance.OnRotate;
+                @Rotate.canceled += instance.OnRotate;
+                @SwitchToGame.started += instance.OnSwitchToGame;
+                @SwitchToGame.performed += instance.OnSwitchToGame;
+                @SwitchToGame.canceled += instance.OnSwitchToGame;
+                @MouseDelta.started += instance.OnMouseDelta;
+                @MouseDelta.performed += instance.OnMouseDelta;
+                @MouseDelta.canceled += instance.OnMouseDelta;
+            }
+        }
+    }
+    public FreeMoveActions @FreeMove => new FreeMoveActions(this);
+
+    // Game
+    private readonly InputActionMap m_Game;
+    private IGameActions m_GameActionsCallbackInterface;
+    private readonly InputAction m_Game_Click;
+    private readonly InputAction m_Game_SwitchToFreeMove;
+    public struct GameActions
+    {
+        private @Controls m_Wrapper;
+        public GameActions(@Controls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Click => m_Wrapper.m_Game_Click;
+        public InputAction @SwitchToFreeMove => m_Wrapper.m_Game_SwitchToFreeMove;
+        public InputActionMap Get() { return m_Wrapper.m_Game; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(GameActions set) { return set.Get(); }
+        public void SetCallbacks(IGameActions instance)
+        {
+            if (m_Wrapper.m_GameActionsCallbackInterface != null)
+            {
+                @Click.started -= m_Wrapper.m_GameActionsCallbackInterface.OnClick;
+                @Click.performed -= m_Wrapper.m_GameActionsCallbackInterface.OnClick;
+                @Click.canceled -= m_Wrapper.m_GameActionsCallbackInterface.OnClick;
+                @SwitchToFreeMove.started -= m_Wrapper.m_GameActionsCallbackInterface.OnSwitchToFreeMove;
+                @SwitchToFreeMove.performed -= m_Wrapper.m_GameActionsCallbackInterface.OnSwitchToFreeMove;
+                @SwitchToFreeMove.canceled -= m_Wrapper.m_GameActionsCallbackInterface.OnSwitchToFreeMove;
+            }
+            m_Wrapper.m_GameActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Click.started += instance.OnClick;
+                @Click.performed += instance.OnClick;
+                @Click.canceled += instance.OnClick;
+                @SwitchToFreeMove.started += instance.OnSwitchToFreeMove;
+                @SwitchToFreeMove.performed += instance.OnSwitchToFreeMove;
+                @SwitchToFreeMove.canceled += instance.OnSwitchToFreeMove;
+            }
+        }
+    }
+    public GameActions @Game => new GameActions(this);
     public interface IInputActions
     {
         void OnMousePosition(InputAction.CallbackContext context);
-        void OnClick(InputAction.CallbackContext context);
         void OnQuit(InputAction.CallbackContext context);
+    }
+    public interface IFreeMoveActions
+    {
         void OnMove(InputAction.CallbackContext context);
+        void OnZoom(InputAction.CallbackContext context);
+        void OnRotate(InputAction.CallbackContext context);
+        void OnSwitchToGame(InputAction.CallbackContext context);
+        void OnMouseDelta(InputAction.CallbackContext context);
+    }
+    public interface IGameActions
+    {
+        void OnClick(InputAction.CallbackContext context);
+        void OnSwitchToFreeMove(InputAction.CallbackContext context);
     }
 }

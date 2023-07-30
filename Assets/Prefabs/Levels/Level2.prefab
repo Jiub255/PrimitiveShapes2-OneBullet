@@ -108,6 +108,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlatformSeeThrough
       objectReference: {fileID: 0}
+    - target: {fileID: 7074658908747504676, guid: 978fd5e0afba12e4c926d196dcd8d326, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7074658908747504696, guid: 978fd5e0afba12e4c926d196dcd8d326, type: 3}
       propertyPath: m_RootOrder
       value: 3

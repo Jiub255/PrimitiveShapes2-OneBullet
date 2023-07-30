@@ -34,11 +34,16 @@ JUICE!!!
 		Menu, gameplay, win, lose. 
 	Add particle effects.
 		Can only use primitive shapes for particles. 
-		Have collision, explode, die (go off course/miss) and shoot effects at least. 
+		Have collision, explode, bullet trail, die (go off course/miss) and shoot effects at least. 
 	Menu animations? If there's time maybe. 
 
 Make moving platforms. 
 
+Make ball reset when you miss. 
+
+Fix free view camera rotation in CameraMoveRotate. 
+
+Test build for WebGL. 
 
 
 ----------------------------------------------------------------------------------------------------------------
@@ -56,5 +61,8 @@ Make space background.
 		Have a big "sun" sphere? 
 			With attached directional light? 
 				Could do different colors instead of plain white. 
+
+Have separate, movable camera for checking out the level before shooting. 
+	Have right click toggle between the two cameras while aiming. 
 
 

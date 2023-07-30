@@ -73,13 +73,13 @@ public class StarMaker : MonoBehaviour
             totalOdds += materialChance.CumulativeOdds;
         }
 
-        int random = UnityEngine.Random.Range(0, totalOdds);
+        int random = UnityEngine.Random.Range(0, totalOdds) + 1;
 
         int cumulativeOdds = 0;
         foreach (MaterialChance materialChance in _materialChances)
         {
             cumulativeOdds += materialChance.CumulativeOdds;
-            if (random < cumulativeOdds)
+            if (random <= cumulativeOdds)
             {
                 return materialChance.Material;
             }
